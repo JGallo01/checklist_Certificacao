@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Checklist de Pré-Auditoria – Artisan C-Sink</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+        h1, h2 { color: #003366; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; background: white; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #e0e0e0; }
+        input[type="checkbox"] { transform: scale(1.2); }
+        textarea { width: 100%; height: 40px; }
+        #progress-bar-container { width: 100%; background-color: #ddd; border-radius: 4px; margin-bottom: 20px; }
+        #progress-bar { height: 20px; background-color: #4CAF50; width: 0%; text-align: center; color: white; border-radius: 4px; }
+        .button-container { margin-bottom: 20px; }
+        button { padding: 10px 20px; margin-right: 10px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <h1>Checklist de Pré-Auditoria – Global Artisan C-Sink 2.1A</h1>
+    <p><strong>Projeto:</strong> AstraCarbon Biochar</p>
+    <p><strong>Versão:</strong> v1.0 | <strong>Data:</strong> <input type="text" id="data"> | <strong>Responsável:</strong> <input type="text" id="responsavel"></p>
+
+    <div id="progress-bar-container">
+        <div id="progress-bar">0%</div>
+    </div>
+
+    <div class="button-container">
+        <button onclick="saveData()">💾 Salvar</button>
+        <button onclick="exportPDF()">📄 Exportar como PDF</button>
+    </div>
+<h2>1. Documentação Geral do Projeto</h2>
+<table>
+<tr><th>Item</th><th>Verificação</th><th>Observações</th></tr>
+<tr><td>PDD completo preenchido e assinado</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Cronograma de implementação definido</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Mapa georreferenciado das áreas de aplicação</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Lista dos lotes de biochar produzidos</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Plano financeiro indicando dependência dos créditos</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+</table>
+<h2>2. Elegibilidade e Origem da Biomassa</h2>
+<table>
+<tr><th>Item</th><th>Verificação</th><th>Observações</th></tr>
+<tr><td>Prova de manejo sustentável da biomassa</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Comprovação de que a biomassa é resíduo e não causa desmatamento</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Documento de rastreabilidade da cadeia da biomassa</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+</table>
+<h2>3. Tecnologia e Produção de Biochar</h2>
+<table>
+<tr><th>Item</th><th>Verificação</th><th>Observações</th></tr>
+<tr><td>Especificação técnica do forno Kon-Tiki</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Análises laboratoriais do biochar (últimos 6 meses)</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Registro de produção por lote (biomassa, massa seca, data, operador)</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Condições de armazenamento temporário (local seco e ventilado)</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+</table>
+<h2>4. MRV – Monitoramento, Reporte e Verificação</h2>
+<table>
+<tr><th>Item</th><th>Verificação</th><th>Observações</th></tr>
+<tr><td>Plano de monitoramento formalizado</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Sistema de dados conectado ou compatível com plataforma CSYNK</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Relatórios de consumo de diesel e cálculo de emissões CO₂</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Plano de medição de CH₄ ou justificativa técnica do fator padrão (0.1 kg/t)</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+</table>
+<h2>5. Rastreabilidade e Registro do C-sink</h2>
+<table>
+<tr><th>Item</th><th>Verificação</th><th>Observações</th></tr>
+<tr><td>Coordenadas GPS de aplicação por lote de biochar</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Batch ID e QR codes gerados para cada unidade/lote</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Consentimento do proprietário da terra (se aplicação for em terceiros)</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Cálculo do C-sink (PAC + SPC) com base nos dados laboratoriais</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+</table>
+<h2>6. Consulta Pública e Engajamento</h2>
+<table>
+<tr><th>Item</th><th>Verificação</th><th>Observações</th></tr>
+<tr><td>Notificação pública emitida (mídias, site, jornais)</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Formulário de coleta de feedbacks disponibilizado</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Relatório de comentários recebidos + respostas da equipe</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+</table>
+<h2>7. Impactos Ambientais e Sociais</h2>
+<table>
+<tr><th>Item</th><th>Verificação</th><th>Observações</th></tr>
+<tr><td>Avaliação de impacto ambiental realizada</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Avaliação de impacto social e plano de treinamento local</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Plano de segurança do trabalho (EPI, incêndio, treinamentos)</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+</table>
+<h2>8. Compensação de Emissões</h2>
+<table>
+<tr><th>Item</th><th>Verificação</th><th>Observações</th></tr>
+<tr><td>Cálculo de CH₄ e CO₂ residual incluído</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Proposta de compensação com créditos de longo prazo</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Plano de redução e eficiência energética (min. 60%)</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+</table>
+<h2>9. Auditoria e Preparação Final</h2>
+<table>
+<tr><th>Item</th><th>Verificação</th><th>Observações</th></tr>
+<tr><td>Arquivos organizados em diretório digital e backup</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Contrato ou carta de intenção com auditor independente</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Agendamento da primeira verificação oficial</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+<tr><td>Lista de pendências a corrigir antes da auditoria</td><td><input type='checkbox' class='chk' onchange='updateProgress()'></td><td><textarea class='obs'></textarea></td></tr>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+    const totalItems = 33;
+
+    function updateProgress() {
+        const checked = document.querySelectorAll('.chk:checked').length;
+        const percent = Math.round((checked / totalItems) * 100);
+        const bar = document.getElementById('progress-bar');
+        bar.style.width = percent + '%';
+        bar.textContent = percent + '%';
+    }
+
+    function saveData() {
+        const data = {
+            data: document.getElementById('data').value,
+            responsavel: document.getElementById('responsavel').value,
+            checks: Array.from(document.querySelectorAll('.chk')).map(c => c.checked),
+            obs: Array.from(document.querySelectorAll('.obs')).map(t => t.value)
+        };
+        localStorage.setItem('checklistArtisan', JSON.stringify(data));
+        alert('Dados salvos localmente!');
+    }
+
+    function loadData() {
+        const data = JSON.parse(localStorage.getItem('checklistArtisan'));
+        if (!data) return;
+        document.getElementById('data').value = data.data;
+        document.getElementById('responsavel').value = data.responsavel;
+        document.querySelectorAll('.chk').forEach((c, i) => c.checked = data.checks[i]);
+        document.querySelectorAll('.obs').forEach((t, i) => t.value = data.obs[i]);
+        updateProgress();
+    }
+
+    function exportPDF() {
+        import('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js').then(jsPDF => {
+            const { jsPDF: PDF } = jsPDF;
+            const doc = new PDF();
+            doc.text("Checklist de Pré-Auditoria – Artisan", 10, 10);
+            let y = 20;
+            document.querySelectorAll('table').forEach(table => {
+                table.querySelectorAll('tr').forEach(row => {
+                    const cells = row.querySelectorAll('td,th');
+                    let line = Array.from(cells).map(c => c.innerText || c.textContent).join(" | ");
+                    doc.text(line, 10, y);
+                    y += 10;
+                    if (y > 280) {
+                        doc.addPage(); y = 10;
+                    }
+                });
+                y += 10;
+            });
+            doc.save('Checklist_Pre_Auditoria_Artisan.pdf');
+        });
+    }
+
+    window.onload = loadData;
+</script>
+</body>
+</html>

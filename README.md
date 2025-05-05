@@ -1,3 +1,3 @@
 # Checklist Artisan App
 
-Checklist de pré-auditoria para projetos de biochar.
+Versão com HTML completo hospedado em /public.
